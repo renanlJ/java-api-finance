@@ -16,4 +16,16 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
+	public void deleteClient(Client client) {
+        clientRepository.delete(client);
+	}
+
+	public Client updateClient(Client client) {
+		return clientRepository.save(client);
+	}
+
+	public Client getClientById(Long id) {
+		return clientRepository.getOne(id);
+	}
+
 }
