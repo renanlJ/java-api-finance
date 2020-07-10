@@ -1,0 +1,1 @@
+insert into ACCOUNT (CREATION_DATE,NUMBER) values(CURRENT_DATE, 0001);
