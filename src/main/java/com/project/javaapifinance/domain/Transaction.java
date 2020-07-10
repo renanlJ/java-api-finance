@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import com.project.javaapifinance.enums.ClassificationEnum;
 import com.project.javaapifinance.enums.TransactionTypeEnum;
@@ -25,6 +26,7 @@ public class Transaction {
     @Enumerated(EnumType.STRING)
     private TransactionTypeEnum type;
     private LocalDateTime timeTransaction;
+    @OneToOne
     private Account account;
 
     public Transaction() {}
