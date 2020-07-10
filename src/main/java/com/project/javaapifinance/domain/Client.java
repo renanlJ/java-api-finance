@@ -1,9 +1,13 @@
 package com.project.javaapifinance.domain;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Client {
@@ -19,6 +23,11 @@ public class Client {
     private String zipCode;
     private String country;
     private String city;
+    private LocalDate dateBirth;
+
+    @JoinColumn(unique = true)
+    @OneToOne
+    private Account account;
 
     public Client(){}
 
@@ -92,6 +101,22 @@ public class Client {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public void setDateBirth(LocalDate dateBirth) {
+        this.dateBirth = dateBirth;
+    }
+
+    public LocalDate getDateBirth() {
+        return dateBirth;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public Account getAccount() {
+        return account;
     }
 
 }

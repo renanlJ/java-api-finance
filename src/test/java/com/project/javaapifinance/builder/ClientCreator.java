@@ -1,5 +1,6 @@
 package com.project.javaapifinance.builder;
 
+import java.time.LocalDate;
 import java.util.Random;
 
 import com.project.javaapifinance.domain.Client;
@@ -56,6 +57,11 @@ public class ClientCreator {
 
     public ClientCreator country(String country) {
         this.client.setCountry(country);
+        return this;
+    }
+
+    public ClientCreator dateOfBirth() {
+        this.client.setDateBirth(LocalDate.of(2000, 02, 20));
         return this;
     }
 

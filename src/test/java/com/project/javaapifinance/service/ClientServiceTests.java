@@ -35,8 +35,9 @@ public class ClientServiceTests {
     @Test
     public void mustDeleteAcliente() {
         Client client = new ClientCreator().createClientWithId();
-        clientService.deleteClient(client);
-        verify(clientRepository).delete(client);
+        given(clientRepository.getOne(client.getId())).willReturn(client);
+        clientService.deleteClientById(client.getId());
+        verify(clientRepository).deleteById(client.getId());
     }
 
     @Test
