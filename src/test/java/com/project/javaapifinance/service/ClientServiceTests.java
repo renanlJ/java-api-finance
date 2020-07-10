@@ -29,6 +29,7 @@ public class ClientServiceTests {
     public void mustRegisterAClient() {
         Client client = new ClientCreator().createClientWithoutId();
         given(clientRepository.save(client)).willReturn(client);
+
         assertThat(clientService.saveClient(client), equalTo(client));
     }
 
@@ -37,6 +38,7 @@ public class ClientServiceTests {
         Client client = new ClientCreator().createClientWithId();
         given(clientRepository.getOne(client.getId())).willReturn(client);
         clientService.deleteClientById(client.getId());
+
         verify(clientRepository).deleteById(client.getId());
     }
 
@@ -44,6 +46,7 @@ public class ClientServiceTests {
     public void mustUpdateAclient() {
         Client client = new ClientCreator().createClientWithId();
         given(clientRepository.save(client)).willReturn(client);
+
         assertThat(clientService.updateClient(client), equalTo(client));
     }
 
@@ -51,6 +54,7 @@ public class ClientServiceTests {
     public void mustReturnAClientGivenSpecificId() {
         Client client = new ClientCreator().createClientWithId();
         given(clientRepository.getOne(client.getId())).willReturn(client);
+        
         assertThat(clientService.getClientById(client.getId()), equalTo(client));
     }
     

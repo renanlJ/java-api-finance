@@ -52,9 +52,8 @@ public class AccountServiceTests {
     public void mustDeleteAnAccount(){
         Account account = new AccountCreator().createAccountWithId();
         given(accountRepository.getOne(account.getId())).willReturn(account);
-
         accountService.deleteAccount(account.getId());
-
+        
         verify(accountRepository, times(1)).deleteById(account.getId());
     }
 
