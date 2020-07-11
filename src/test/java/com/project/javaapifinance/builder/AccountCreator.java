@@ -1,6 +1,7 @@
 package com.project.javaapifinance.builder;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Random;
 
 import com.project.javaapifinance.domain.Account;
@@ -50,6 +51,13 @@ public class AccountCreator {
             .accountType(AccountTypeEnum.CURRENT_ACCOUNT)
             .creationDate(LocalDate.of(2000, 12, 01))
             .build();
+    }
+
+    public List<Account> createAccountsWithId() {
+        Account account1 = createAccountWithId();
+        Account account2 = createAccountWithId();
+
+        return List.of(account1, account2);
     }
 
     public Account createAccountWithoutId() {

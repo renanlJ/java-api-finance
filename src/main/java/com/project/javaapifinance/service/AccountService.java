@@ -1,5 +1,7 @@
 package com.project.javaapifinance.service;
 
+import java.util.List;
+
 import com.project.javaapifinance.domain.Account;
 import com.project.javaapifinance.repository.AccountRepository;
 
@@ -26,6 +28,10 @@ public class AccountService {
 
 	public void deleteAccount(Long id) {
         accountRepository.deleteById(id);
+	}
+
+	public List<Account> findAllAccounts() {
+		return accountRepository.findAll();
 	}
 
 }

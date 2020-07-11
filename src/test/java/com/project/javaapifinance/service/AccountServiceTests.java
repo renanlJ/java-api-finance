@@ -7,6 +7,9 @@ import com.project.javaapifinance.repository.AccountRepository;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -55,6 +58,14 @@ public class AccountServiceTests {
         accountService.deleteAccount(account.getId());
         
         verify(accountRepository, times(1)).deleteById(account.getId());
+    }
+
+    @Test
+    public void mustFindAllAccounts() {
+        List<Account> accounts = new AccountCreator().createAccountsWithId();
+        given(accountRepository.findAll()).willReturn(accounts);
+
+        assertThat(accountService.findAllAccounts(), equalTo(accounts));
     }
 
 }
