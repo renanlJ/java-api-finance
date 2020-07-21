@@ -57,14 +57,15 @@ public class AccountControllerTests {
         
         String body = JsonUtils.jsonString(account);
 
-        this.mockMvc.perform(put("/account/").content(body)).andExpect(status().isOk());
+        this.mockMvc.perform(
+            put("/account/").content(body).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     }
 
     @Test
     public void mustReturn201WhenCreateAccount() throws Exception {
         Account account = new AccountCreator().createAccountWithoutId();
         String body = JsonUtils.jsonString(account);
-        
+                
         this.mockMvc.perform(
             post("/account/")
             .content(body)
