@@ -1,5 +1,7 @@
 package com.project.javaapifinance.service;
 
+import java.util.List;
+
 import com.project.javaapifinance.domain.Transaction;
 import com.project.javaapifinance.repository.TransactionRepository;
 
@@ -26,5 +28,9 @@ public class TransactionService {
 
 	public Transaction update(Transaction transaction) {
 		return transactionRepository.save(transaction);
+	}
+
+	public List<Transaction> findAllTransaction() {
+		return transactionRepository.findAll();
 	}
 }

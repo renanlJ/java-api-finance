@@ -2,6 +2,7 @@ package com.project.javaapifinance.builder;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Random;
 
 import com.project.javaapifinance.domain.Account;
@@ -69,5 +70,13 @@ public class TransactionBuilder {
             .timeTransaction(LocalDateTime.of(2020, 07, 10, 00, 45, 03))
             .build();
     }
+
+	public List<Transaction> createTransactionsWithId() {
+        Transaction transaction1 = createTransationWithId();
+        Transaction transaction2 = createTransationWithId();
+        Transaction transaction3 = createTransationWithId();
+        
+        return List.of(transaction1,transaction2,transaction3);
+	}
 
 }

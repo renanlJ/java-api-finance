@@ -7,6 +7,9 @@ import com.project.javaapifinance.repository.TransactionRepository;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -23,6 +26,14 @@ public class TransactionServiceTests {
 
     @Mock
     private TransactionRepository transactionRepository;
+
+    @Test
+    public void mustReturnAllTransactions() {
+        List<Transaction> transactions = new TransactionBuilder().createTransactionsWithId();
+        given(transactionRepository.findAll()).willReturn(transactions);
+
+        assertThat(transactionService.findAllTransaction(), equalTo(transactions));
+    }
 
     @Test
     public void mustReturnATransactionById() {
