@@ -1,5 +1,7 @@
 package com.project.javaapifinance.service;
 
+import java.util.List;
+
 import com.project.javaapifinance.domain.Client;
 import com.project.javaapifinance.repository.ClientRepository;
 
@@ -26,6 +28,10 @@ public class ClientService {
 
 	public Client getClientById(Long id) {
 		return clientRepository.getOne(id);
+	}
+
+	public List<Client> findAllClients() {
+		return clientRepository.findAll();
 	}
 
 }
